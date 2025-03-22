@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Bricolage';
+    src: url('../fonts/Bricolage.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Sancreek';
+    src: url('../fonts/SancreekRegular.ttf') format('truetype');
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Sancreek';
+    color: rgb(251, 201, 8) !important;
+}
+li,a,p,label{
+    font-family: "Bricolage";
+    color: #f6f7d7 !important;
+}
