@@ -159,7 +159,7 @@ class UserSeeder extends Seeder
                 'name'=>'Koor AD',
                 'username'=>'ditha',
                 'email'=>'dithaAD@gmail.com',
-                'password'=>Hash::make('dithaADMOBFT2024    '),
+                'password'=>Hash::make('dithaADMOBFT2024'),
                 'role'=>'panitia'
             ],
             [

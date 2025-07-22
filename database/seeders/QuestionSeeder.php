@@ -14,292 +14,292 @@ class QuestionSeeder extends Seeder
     public function run(): void
     {
         DB::table('questions')->insert([
-            /*DPM FT */
+            /*DPM FT  DONE */
             [
-                'question'=>'Terdapat 3 divisi di DPM Fakultas Teknik',
+                'question'=>'Divisi Audit bertugas untuk mengawasi kegiatan-kegiatan ORMAWA FT dari segi proposal LPJ, dan audit lapangan (saat kegiatan berlangsung). Pernyataan tersebut benar atau salah?',
                 'ormawa_id'=>1,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Salah satu program kerja DPM Fakultas Teknik adalah Engineers Week & Sharing Days',
+                'question'=>'Apa nama peraturan yang hanya mengatur satu ormawa tertentu dan diperiksa oleh DPM?',
                 'ormawa_id'=>1,
-                'answer'=>1
+                
             ],
             [
-                'question'=>'Program Sharing Days bertujuan untuk bonding antar anggota DPM Fakultas Teknik',
+                'question'=>'Ada berapa total divisi dalam DPM FT ini?',
                 'ormawa_id'=>1,
-                'answer'=>0
+                
             ],
             [
-                'question'=> 'DPM Fakultas Teknik menerapkan sistem Staf Magang',
+                'question'=>'Singkatan dari DPM FT adalah singkatan dari Dewan Perwakilan Masyarakat Fakultas Teknik. Pernyataan tersbut benar atau salah?',
                 'ormawa_id'=>1,
-                'answer'=>1
+                
             ],
             [
-                'question'=>'DPM Fakultas Teknik merupakan lembaga Eksekutif di Fakultas Teknik',
+                'question'=> 'Aspirasi mahsiswa Fakultas Teknik dapat disampaikan melalui DPM FT untuk diteruskan ke Dekanat Fakultas Teknik. Pernyataan tersebut benar atau salah?',
                 'ormawa_id'=>1,
-                'answer'=>0
+                
             ],
             /*BEM FT*/
             [
-                'question'=>'BPH BEM Fakultas Teknik terdiri dari 4 orang',
+                'question'=>'Ada berapa total divisi di BEM FT ini?',
                 'ormawa_id'=>11,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Kepanjangan divisi AD adalah Audit Departement',
+                'question'=>'Tugas dari divisi ID adalah mengurus peminjaman barang inventaris BEM FT. Pernyataan tersebut benar atau salah?',
                 'ormawa_id'=>11,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'BEM FT adalah organisasi eksekutif di Fakultas Teknik',
+                'question'=>'Singkatan dari IDD  pada salah satu divisi di BEM FT adalah Information and Design Department',
                 'ormawa_id'=>11,
-                'answer'=>1
+                
             ],
             [
-                'question'=>'OD bertugas untuk mengurus inventaris seluruh Fakultas Teknik',
+                'question'=>'Badan Pengurus Harian (BPH) terdiri dari Gubernur, Wakil Gubernur, Sekretaris 1, Sekretaris 2, Bendahara 1, dan Bendahara 2. Benar atau salah pernyataan tersebut?',
                 'ormawa_id'=>11,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Instagram BEM FT adalah @bemftubaya',
+                'question'=>'Mengurus segala administrasi berupa pengauditan proposal dan laporan pertanggungjawaban dari ORMAWA FT adalah tugas dari divisi...',
                 'ormawa_id'=>11,
-                'answer'=>0
+                
             ],
             /*KSM TI*/
             [
-                'question'=>'Terdapat 5 divisi di KSM Teknik Industri',
+                'question'=>'Divisi yang bertugas untuk menjalin hubungan serta relasi dengan eksternal KSM TI adalah tugas dari divisi?',
                 'ormawa_id'=>8,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Ruangan KSM Teknik Industri berada di TF 01.08',
+                'question'=>'Ada berapa total divisi yang ada di KSM TI ini?',
                 'ormawa_id'=>8,
-                'answer'=>1
+                
             ],
             [
-                'question'=>'Divisi Partner bertugas untuk membangun dan meningkatkan hubungan kekeluargaan dalam KSM Teknik Industri',
+                'question'=>'Tugas BPH adalah mengatur dan berkoordinasi internal serta external KSM TI. Pernyataan tersebut benar atau salah?',
                 'ormawa_id'=>8,
-                'answer'=>0
+                
             ],
             [
-                'question'=> 'Memiliki misi untuk meningkatkan rasa kebersamaan dan kepedulian antar organisasi mahasiswa',
+                'question'=> 'Divisi Entrepreneur memiliki tugas untuk meningkatkan kemampuan hardskill KSM TI. Pernyataan tersebut benar atau salah',
                 'ormawa_id'=>8,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Tagline KSM Teknik Industri adalah “Incredible”',
+                'question'=>'Tugas divisi Entrepreneur adalah untuk mempererat hubungan 100% family KSM TI. Pernyataan tersebut benar atau salah?',
                 'ormawa_id'=>8,
-                'answer'=>1
+                
             ],
             /*KSM TK*/
             [
-                'question'=>'Arti Logo Gigi Roda melambangkan sebagai tempat untuk berproses untuk menghasilkan output terbaik',
+                'question'=>'Benar atau salah, program kerja KSM Teknik Kimia adalah Dialog Dosen Mahasiswa?',
                 'ormawa_id'=>9,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Pelatihan Komputasi merupakan program kerja divisi Research and Development Department',
+                'question'=>'Salah satu program kerja KSM Teknik Kimia berupa kegiatan perkenalkan jurusan bagi siswa-siswi SMA adalah..',
                 'ormawa_id'=>9,
-                'answer'=>1
+                
             ],
             [
-                'question'=>'Terdapat Pelatihan Produk Kimia untuk siswa siswi SMA',
+                'question'=>'Apa saja divisi yang ada di KSM Teknik Kimia',
                 'ormawa_id'=>9,
-                'answer'=>1
+                
             ],
             [
-                'question'=>'Selain BPH, KSM Teknik Kimia memiliki 4 divisi lainnya',
+                'question'=>'Benar atau salah tugas dari divisi IPD adalah membangun dan menjaga kekeluargaan antara anggota KSM TK?',
                 'ormawa_id'=>9,
-                'answer'=>1
+                
             ],
             [
-                'question'=>'PRD merupakan divisi yang bertanggung jawab dalam mengoordinasi hubungan dengan pihak internal dari KSM Teknik Kimia Ubaya',
+                'question'=>'Kegiatan rutin tahunan bagi warga Teknik Kimia yang diwadahi oleh KSM Teknik Kimia berupa kunjungan ke perusahaan-perusahaan di luar kota adalah..',
                 'ormawa_id'=>9,
-                'answer'=>0
+                
             ],
             /*KSM TE */
             [
-                'question'=>'Arti Kucing dari Maskot KSM Teknik Elektro adalah mengidentifikasikan bahwa di Ubaya terdapat banyak kucing di dalam kampusnya',
+                'question'=>'Di mana letak ruangan KSM TE?',
                 'ormawa_id'=>7,
-                'answer'=>1
+                
             ],
             [
-                'question'=>'KSM Teknik Elektro memiliki 6 divisi lainnya',
+                'question'=>'Ada berapa divisi di KSM TE?',
                 'ormawa_id'=>7,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Arti Steker dari Maskot KSM Teknik Elektro adalah ekor sebagai pengisi ulang daya milik Maskot KSM Teknik Elektro',
+                'question'=>'Benar atau salah, salah satu tugas dari KSM Teknik Elektro adalah menjadi pelaksana kegiatan kuliah tamu di Teknik Elektro',
                 'ormawa_id'=>7,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'CDD merupakan kepanjangan dari Communication and Design Department',
+                'question'=>'Apa kepanjangan dari divisi RCD di KSM Teknik Elektro?',
                 'ormawa_id'=>7,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'RCD merupakan divisi yang memiliki tanggung jawab utama dalam menjaga hubungan sosial baik antar anggota KSM Teknik Elektro maupun eksternal dengan ormawa lain',
+                'question'=>'Benar atau atau salah, divisi yang bertugas untuk mengelola sosial media KSM Teknik Elektro adalah CDD?',
                 'ormawa_id'=>7,
-                'answer'=>1
+                
             ],
             /*KSM TMM*/
             [
-                'question'=>'Slogan KSM TMM adalah “WE MAKE IT REAL”',
+                'question'=>'Benar atau salah, terdapat 3 divisi dalam KSM TMM?',
                 'ormawa_id'=>10,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'RND adalah mempererat hubungan antar seluruh anggota KSM TMM',
+                'question'=>'Apa slogan KSM TMM?',
                 'ormawa_id'=>10,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'KSM TMM merupakan singkatan dari Kelompok Studi Mahasiswa Teknik Mesin dan Manufaktur',
+                'question'=>'Benar atau salah tugas dari divisi Eksternal KSM TMM adalah meningkatkan hardskill dan softskill para anggota KSM melalui kegiatan yang diadakan di dalam lingkup KSM?',
                 'ormawa_id'=>10,
-                'answer'=>1
+                
             ],
             [
-                'question'=>'KSM Teknik Mesin dan Manufaktur memiliki 5 divisi',
+                'question'=>'Berikut merupakan divisi yang ada di KSM TMM kecuali..',
                 'ormawa_id'=>10,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Divisi Internal memiliki tugas yaitu mengeratkan hubungan antar seluruh anggota KSM serta memberikan pelatihan soft skill dan motivasi untuk anggota KSM',
+                'question'=>'Divisi yang bertugas untuk melakukan kajian tentang teknologi yang sedang berkembang di dunia manufaktur dan memberikan pelatihan yang dapat berguna di dunia kuliah maupun kerja adalah…',
                 'ormawa_id'=>10,
-                'answer'=>1
+                
 
             ],
             /*KSM IF*/
             [
-                'question'=>'KSM Informatika berdiri sejak Tahun 1998',
+                'question'=>'Divisi apa yang memiliki tugas untuk  menjalin hubungan dengan pihak luar KSM (baik dalam lingkup UBAYA, maupun luar UBAYA)?',
                 'ormawa_id'=>6,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Termasuk BPH, KSM Informatika memiliki 4 divisi',
+                'question'=>'Total divisi yang ada di KSM IF ini adalah...',
                 'ormawa_id'=>6,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Kepanjangan dari KSM IF adalah Kelompok Studi Mahasiswa Teknik Informatika',
+                'question'=>'Singkatan Divisi HRDD dalam KSM IF adalah Human Resource Department Development. Pernyataan tersebut benar atau salah?',
                 'ormawa_id'=>6,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Divisi HRDD adalah Human Resource Development Department',
+                'question'=>'KSM IF terletak di TF lantai 4.10. Pernyataan tersebut benar atau salah?',
                 'ormawa_id'=>6,
-                'answer'=>1
+                
             ],
             [
-                'question'=>'Divisi CDD memiliki tugas mengenai penyajian informasi yang berkaitan dengan KSM IF',
+                'question'=>'Yang memiliki tugas untuk memimpin KSM IF agar dapat berjalan dengan baik dan dapat mencapai visi dan misi KSM IF adalah tugas BPH yakni Ketua. Pernyataan tersebut benar atau salah?',
                 'ormawa_id'=>6,
-                'answer'=>1
+                
             ],
             /*KSM FOTMED*/
             [
-                'question'=> 'Kepanjangan divisi PC adalah Public Communication',
+                'question'=> 'Apa jargon KSM Foto dan Media?',
                 'ormawa_id'=>5,
-                'answer'=>0
+                
             ],
             [
-                'question'=> 'Foto dan Media merupakan sebuah Kelompok Minat Mahasiswa',
+                'question'=> 'Ada berapa banyak acara eksternal yang diadakan oleh KSM Foto dan Media?',
                 'ormawa_id'=>5,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Roll Film Terbuka melambangkan selalu terbuka untuk siapa saja',
+                'question'=>'Ada berapa divisi di KSM Foto dan Media?',
                 'ormawa_id'=>5,
-                'answer'=>1
+                
             ],
             [
-                'question'=>'Tagline KSM Foto & Media adalah “Welcome Home”',
+                'question'=>'Di mana letak ruangan KSM FOTMED?',
                 'ormawa_id'=>5,
-                'answer'=>1
+                
             ],
             [
-                'question'=>'Divisi Photography and Digital Hunting bergerak dibidang dokumentasi perfilman',
+                'question'=>'Benar atau salah kepanjangan dari divisi PDH KSM Foto dan Media adalah Photography and Digital Hunter?',
                 'ormawa_id'=>5,
-                'answer'=>0
+                
             ],
             /*KMM SPORTS*/
             [
-                'question'=>'Terdapat 4 Divisi di KMM SPORTS',
+                'question'=>'Dalam divisi sports terdapat cabang bulu tangkis. Pernyataan tersebut benar atau salah?',
                 'ormawa_id'=>4,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'KMM SPORTS Hanya mewadahi olahraga fisik',
+                'question'=>'Fungsi divisi DDD dalam kmm sports digunakan untuk promosi. Pernyataan tersebut benar atau salah',
                 'ormawa_id'=>4,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Olahraga Flag Footbal juga termasuk di dalam KMM SPORTS',
+                'question'=>'Nala sangat ingin bergabung dengan KMM Sports, namun dia kurang yakin dengan kemampuan olahraganya. Tapi di sisi lain Nala sangat mahir bermain game online. Divisi apa yang cocok dengan kondisi Nala saat ini…',
                 'ormawa_id'=>4,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Pada Divisi Sports terdapat SUB Basket, SUB Badminton, SUB Futsal, dan SUB Tennis Meja',
+                'question'=>'KMM Sports biasa melakukan latihan rutin di Ubaya Sport Center. Pernytaan tersebut benar atau salah ?',
                 'ormawa_id'=>4,
-                'answer'=>1
+                
             ],
             [
-                'question'=>'Terdapat 2 wakil dalam KMM SPORTS',
+                'question'=>'Ada berapa total divisi di kmm sport?',
                 'ormawa_id'=>4,
-                'answer'=>0
+                
             ],
             /*KMM RK*/
             [
-                'question'=>'Slogan KMM Radio Kampus adalah “Fresh Your Mind with Entertainment Radio”',
+                'question'=>'Benar atau salah, ada 3 divisi di KMM RK?',
                 'ormawa_id'=>3,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Frekuensi FM KMM Radio Kampus adalah 101.9 E-FM',
+                'question'=>'Berikut divisi yang ada di KMM RK, kecuali:',
                 'ormawa_id'=>3,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Music Director bertugas mencari dan memilah bahan materi siaran',
+                'question'=>'Event apa yang baru saja selesai diselenggarakan oleh KMM RK dengan mengundang seorang pembicara?',
                 'ormawa_id'=>3,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'KMM Radio Kampus memiliki 2 divisi',
+                'question'=>'Benar atau salah, salah satu tugas dari divisi produser adalah mengedit audio?',
                 'ormawa_id'=>3,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Tugas dari Design and Social Media adalah mengelola segala hal yang berkaitan dengan desain dan management social media',
+                'question'=>'Jika seorang mahasiswa ingin mendaftar KMM RK dan ia memiliki kemampuan yang baik dalam mengatur jadwal, sehingga kompeten untuk mengatur jadwal siaran RK, maka mahasiswa tersebut tepat untuk mendaftar di divisi..',
                 'ormawa_id'=>3,
-                'answer'=>1
+                
             ],
             /*KMM PPM*/
             [
-                'question'=>'Kepanjangan divisi RMD adalah Relation Media Documentation',
+                'question'=>'Di manakah letak KMM PPM?',
                 'ormawa_id'=>2,
-                'answer'=>1
+                
             ],
             [
-                'question'=>'Lokasi Ruangan KMM PPM terdapat di TC 1.6',
+                'question'=>'Ada berapa divisi dalam KMM PPM?',
                 'ormawa_id'=>2,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'KMM PPM memiliki kegiatan Live In',
+                'question'=>'Benar atau salah, salah satu aksi yang dilakukan oleh KMM PPM adalah donor darah?',
                 'ormawa_id'=>2,
-                'answer'=>1
+                
             ],
             [
-                'question'=>'Live In adalah kegiatan bonding antar anggota KMM PM',
+                'question'=>'Benar atau salah, KMM PPM pernah melakukan kegiatan live in untuk melayani masyarakat?',
                 'ormawa_id'=>2,
-                'answer'=>0
+                
             ],
             [
-                'question'=>'Kepanjangan PPM adalah Pengabdian Pada Masyarakat',
+                'question'=>'Apa slogan KMM PPM?',
                 'ormawa_id'=>2,
-                'answer'=>1
+                
             ]
         ]);
     }

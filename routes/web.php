@@ -29,7 +29,7 @@ Auth::routes();
 Route::group(['middleware'=>'team', 'prefix'=>'team', 'as'=>'team.'], function(){
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-    Route::post('/getQuestion', [QuestionController::class, 'getQuestion'])->name('getQuestion');
+    Route::get('/getQuestion', [QuestionController::class, 'getQuestions'])->name('getQuestion');
     
     Route::post('/answer', [QuestionController::class, 'AnswerQuestion'])->name('answerQuestion');
     

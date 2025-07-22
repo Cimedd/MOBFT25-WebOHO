@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             OrmawaSeeder::class,
             UserSeeder::class,
-            QuestionSeeder::class
+            QuestionSeeder::class,
+            AnswerSeeder::class
         ]);
     }
 }

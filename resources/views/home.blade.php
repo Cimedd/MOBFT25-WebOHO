@@ -48,7 +48,7 @@
 @section('content')
     <div class="container position-relative">
         @if (session()->has('completed'))
-            <div class="alert alert-warning" role="alert">
+            <div class="alert alert-success" role="alert">
                 {{ session()->get('completed') }}
             </div>
         @endif
@@ -60,8 +60,7 @@
         <div class="">
             <div id="reader" width="600px" class="text-black mx-auto bg-light rounded"></div>
             <div class="rounded p-3 mt-3 w-75 mx-auto form" style="background-color: #561414;">
-                <form action="{{ route('team.getQuestion') }}" method="POST">
-                    @csrf
+                <form action="{{ route('team.getQuestion', ['page' => 1]) }}" method="GET">
                     <label for="ormawaField" style="color: #fbc908;" class="mb-1">Code</label>
                     <input type="password" name="ormawaCode" id="ormawaField" class="w-100" readonly x>
                     <br>
@@ -72,33 +71,12 @@
             </div>
         </div>
 
-
-
-        {{-- <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        {{ __('You are logged in!') }}
-                    </div>
-                </div>
-            </div>
-        </div> --}}
     </div>
     <div class="">
         <img src="{{ asset('asset') }}/5.png" alt="house" class="position-absolute bottom-0 house">
         <img id="clown" src="{{ asset('asset') }}/4.png" alt="clown" class="position-absolute badut"
             style="right: 5%; bottom: 1%">
     </div>
-    {{-- <img src="{{ asset('asset') }}/1.png" alt="" class="w-25 position-absolute korden right"> --}}
-    {{-- <img src="{{ asset('asset') }}/0.png" alt="" class="w-25 position-absolute korden left"> --}}
 @endsection
 
 @section('script')

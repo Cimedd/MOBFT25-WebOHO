@@ -12,6 +12,9 @@
             border-color: #492469;
 
         }
+        .text {
+            font-size: 1.5rem;
+        }
     </style>
 @endsection
 
@@ -51,26 +54,32 @@
             <br>
             @if (session('result') && session('result')->isNotEmpty())
                 <h2>Result</h2>
-                <p>Ormawa : {{ session('ormawaName') }} </p>
-                <p>Team : {{ session('teamName') }} </p>
+                <p class="text">Ormawa : {{ session('ormawaName') }}</p>
+                <p class="text">Team : {{ session('teamName') }} </p>
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <td>No</td>
                             <td>Question</td>
-                            <td>Correct Answer</td>
                             <td>Answer</td>
+                            <td>Correct Answer</td>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (session('result') as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
-                                <td>{{ $item->question }}</td>
-                                <td>{{ $item->correct == 1 ? 'True' : 'False' }}</td>
-                                <td>{{ $item->answer == 1 ? 'True' : 'False' }}</td>
+                                <td>{{ $item->question_text }}</td>
+                                <td>{{ $item->user_answer_text }}</td>
+                                <td>{{ $item->correct_answer_text }}</td>
                             </tr>
                         @endforeach
+                        <tr>
+                            <td colspan="4" class="text">Correct Answers: {{ session('correctCount') }} / {{ session('count') }}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4" class="text">Score For {{ session('ormawaName') }}: {{ session('score') }}</td>
+                        </tr>
                     </tbody>
                 </table>
             @else

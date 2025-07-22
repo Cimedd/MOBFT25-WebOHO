@@ -81,6 +81,7 @@
 @section('content')
     <div class="vw-100 vh-100 position-relative overflow-hidden">
         <div id="timer" class="text-white text-center w-25 mx-auto rounded" style="background-color: #d17a32;">01:30</div>
+
         <!-- Initial placeholder time -->
         <div class="header mt-4">
             @if ($ormawa)
@@ -93,22 +94,52 @@
             @endif
         </div>
         <div class="card mx-auto mt-5" style="background-color: #941a0b; width:20rem;">
-            <img src="{{ asset('asset') }}/9.png" alt="topi-badut" class="w-25 position-absolute topi-badut">
+            <img src="{{ asset('asset/9.png') }}" alt="topi-badut" class="w-25 position-absolute topi-badut">
+
             <div class="card-body">
-                <h2 id="numQuestion" class="card-title">Question 1</h2>
-                @if ($question)
-                    <p id="question">{{ $question[0]->question }}</p>
+                @if (session()->has('wrong'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ session()->get('wrong') }}
+                    </div>
                 @endif
-                <div class="card-actions d-flex justify-content-center gap-2">
-                    <button id="true" class="btn text-white" style="background-color: #d17a32;">True</button>
-                    <button id="false" class="btn bg-transparent text-white"
-                        style="border-color: #d17a32;">False</button>
-                </div>
+                @if (session()->has('success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session()->get('success') }}
+                    </div>
+                @endif
+                {{-- Use $questions for pagination data --}}
+                <h2 class="card-title">
+                    Question {{ $questions->currentPage() }} of {{ $questions->lastPage() }}
+                </h2>
+
+                <p id="question">{{ $question->question }}</p>
+
+                <form action="/team/answer" method="POST">
+                    @csrf
+                    <input type="hidden" name="ormawaCode" value="{{ $ormawa->code }}">
+                    <input type="hidden" name="page" value="{{ $questions->currentPage() }}">
+                    <input type="hidden" name="lastPage" value="{{ $questions->lastPage() }}">
+                    <input type="hidden" name="question_id" value="{{ $question->id }}">
+
+                    @foreach ($answers as $answer)
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="answer_{{ $answer->id }}" name="answer_id"
+                                value="{{ $answer->id }}" required>
+                            <label class="form-check-label text-white" for="answer_{{ $answer->id }}">
+                                {{ $answer->answer_text }}
+                            </label>
+                        </div>
+                    @endforeach
+
+                    <button type="submit" class="btn btn-warning mt-3">Submit</button>
+                </form>
             </div>
         </div>
-        <div class="mt-5 bottom-0">
-            <h1 class="text-center">~ Good Luck ~</h1>
-        </div>
+
+    </div>
+    <div class="mt-5 bottom-0">
+        <h1 class="text-center">~ Good Luck ~</h1>
+    </div>
     </div>
 @endsection
 
@@ -126,7 +157,7 @@
             let counter = 0;
             let question = @json($question);
             let ormawa = @json($ormawa);
-            let totalTime = 60000; //waktu 1 menit
+            let totalTime = 60000000; //waktu 1 menit
             let timerElement = $('#timer');
             let intervalId;
 

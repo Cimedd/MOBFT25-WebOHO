@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('question_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
-            $table->tinyInteger('answer');
+            $table->foreignId('answer_id')->constrained('question_answers')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -7,153 +7,156 @@ use App\Models\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use PDO;
-use Symfony\Component\HttpKernel\HttpCache\ResponseCacheStrategy;
+use Illuminate\Support\Facades\Log;
 
 class QuestionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+
+    public function getQuestions(Request $request)
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
-
-    // public function getQuestion(Request $request){
-    //     $code = $request->ormawaCode;
-    //     $ormawa = DB::table('ormawas')->where('code', $code)->first();
-    //     $hasAnswered = DB::table('users as u')
-    //     ->join('answers as a','u.id','=','a.user_id' )
-    //     ->join('questions as q', 'q.id', '=', 'a.question_id')
-    //     ->where('u.id', Auth::id())
-    //     ->where('q.ormawa_id', $ormawa)
-    //     ->exists();
-
-    //     if (!$hasAnswered) {
-    //         if ($ormawa) {
-    //             $question = DB::table('questions')->where('ormawa_id', $ormawa->id)->get();
-    //             return view('ormawa', [
-    //                 'ormawa' => $ormawa,
-    //                 'question'=>$question,
-    //             ]);
-    //         }
-    //     }
-    //     return view('scan');
-    // }
-
-    public function getQuestion(Request $request)
-    {
-        $code = $request->ormawaCode;
-        $ormawa = DB::table('ormawas')->where('code', $code)->first();
-
-        if ($ormawa) {
-            // $hasAnswered = DB::table('users as u')
-            //     ->join('answers as a', 'u.id', '=', 'a.user_id')
-            //     ->join('questions as q', 'q.id', '=', 'a.question_id')
-            //     ->where('u.id', Auth::id())
-            //     ->where('q.ormawa_id', $ormawa->id) // Use the id property of $ormawa
-            //     ->exists();
-
-            $hasAnswered = DB::table('logs')
-                            ->where('user_id', '=', Auth::id())
-                            ->where('ormawa_id', '=', $ormawa->id)
-                            ->first();
-            if (!$hasAnswered) {
-                $question = DB::table('questions')->where('ormawa_id', $ormawa->id)->get();
-                return view('ormawa', [
-                    'ormawa' => $ormawa,
-                    'question' => $question
-                ]);
-            }else{
-                return back()->with('completed', 'Thankyou! You Have Redeemed the token 😊');
-            }
-        }
-        return back()->with('wrong', 'Sorry the code is wrong! ❌');
-
-    }
-
-
-    public function AnswerQuestion(Request $request){
-        $answerValue = $request->answer;
-        $questionId = $request->question_id;
-        DB::table('answers')->insert([
-            'question_id'=> $questionId,
-            'answer'=>$answerValue,
-            'user_id'=>Auth::id()
+        $request->validate([
+            'ormawaCode' => 'required|string|exists:ormawas,code',
+            'page'       => 'nullable|integer|min:1',
         ]);
+
+        // Log::info("Received request to get questions with code: ", $request->all());
+
+        $ormawa = DB::table('ormawas')->where('code', $request->ormawaCode)->first();
+        $code = $request->ormawaCode;
+
+        $answered = DB::table('logs')->where('user_id', Auth::id())
+            ->where('ormawa_id', $ormawa->id)
+            ->exists();
+
+
+        if ($answered) {
+            // Log::info("User has already answered questions for this Ormawa.");
+            return redirect()->route('team.home')->with('wrong', 'You have already answered the questions for this Ormawa.');
+        }
+
+        $joinedTable = DB::table('answers')->join('questions', 'answers.question_id', '=', 'questions.id')
+            ->where('answers.user_id', Auth::id())
+            ->where('questions.ormawa_id', $ormawa->id)
+            ->select('answers.question_id')
+            ->distinct()
+            ->get();
+
+        $countAnswer = $joinedTable->count();
+        $expectedPage = $countAnswer + 1;
+
+        $questions = Question::where('ormawa_id', $ormawa->id)
+            ->paginate(1);
+
+
+        if ($questions->count() === 0) {
+            return redirect()->route('team.getQuestion', [
+                'page' => $expectedPage,
+                'ormawaCode' => $request->ormawaCode,
+            ]);
+        }
+
+        $question = $questions->first();
+
+        $answers = DB::table('question_answers')
+            ->where('question_id', $question->id)
+            ->get();
+
+
+        $currentPage = (int) $request->get('page', 1);
+
+        if ($currentPage !== $expectedPage) {
+            return redirect()->route('team.getQuestion', [
+                'page' => $expectedPage,
+                'ormawaCode' => $request->ormawaCode,
+            ]);
+        }
+
+        if ($expectedPage > $questions->lastPage()) {
+            return redirect()->route('team.home')->with('completed', 'You have answered all questions for this Ormawa! ✅');
+        }
+
+        return view('ormawa', compact('questions', 'answers', 'ormawa', 'question', 'code'));
     }
 
-    // public function check(Request $request){
-    //     $id = $request->id;
-    //     $ormawa = $request->ormawa_id;
-    //     $hasAnswered = DB::table('users as u')
-    //                     ->join('answers as a','u.id','=','a.user_id' )
-    //                     ->join('questions as q', 'q.id', '=', 'a.question_id')
-    //                     ->where('u.id', $id)
-    //                     ->where('q.ormawa_id', $ormawa)
-    //                     ->exists();
 
-    //     if ($hasAnswered) {
-    //         return response()->json([true], 200);
-    //     }
-    //     return response()->json([false], 200);
-    // }
 
-    public function insertLog(Request $request){
-        $ormawaId = $request->ormawa_id;
+    public function AnswerQuestion(Request $request)
+    {
+        $request->validate([
+            'ormawaCode' => 'required|string|exists:ormawas,code',
+            'question_id' => 'required|exists:questions,id',
+            'answer_id'  => 'required|exists:question_answers,id', // or answers table
+            'page'       => 'required|integer|min:1',
+        ]);
+
+        $answer_id = $request->answer_id;
+        $questionId = $request->question_id;
+
+        $answered = DB::table('answers')
+            ->where('user_id', Auth::id())
+            ->where('question_id', $questionId)
+            ->exists();
+
+        $id = DB::table('ormawas')->where('code', $request->ormawaCode)->first()->id;
+
+        $joinedTable = DB::table('answers')->join('questions', 'answers.question_id', '=', 'questions.id')
+            ->where('answers.user_id', Auth::id())
+            ->where('questions.ormawa_id', $id)
+            ->select('answers.question_id')
+            ->distinct()
+            ->get();
+
+        $countAnswer = $joinedTable->count();
+
+        if ($answered) {
+            $expectedPage = $countAnswer + 1;
+            return redirect()->route('team.getQuestion', [
+                'page' => $expectedPage,
+                'ormawaCode' => $request->ormawaCode,
+            ])->with('wrong', 'You have already answered this question.');
+        }
+
+        DB::table('answers')->insert([
+            'question_id' => $questionId,
+            'answer_id' => $answer_id,
+            'user_id' => Auth::id()
+        ]);
+
+        $joinedTable = DB::table('answers')->join('questions', 'answers.question_id', '=', 'questions.id')
+            ->where('answers.user_id', Auth::id())
+            ->where('questions.ormawa_id', $id)
+            ->select('answers.question_id')
+            ->distinct()
+            ->get();
+
+        $countAnswer = $joinedTable->count();
+
+        Log::info("Count of answered questions: $countAnswer");
+        $totalQuestions = Question::where('ormawa_id', $id)->count();
+        Log::info("Count of total questions: $totalQuestions");
+
+        if ($countAnswer === $totalQuestions) {
+            Log::info("User has answered all questions for Ormawa: ", [
+                'user_id' => Auth::id(),
+                'ormawa_code' => $request->ormawaCode,
+                'ormawa_id' => $id
+            ]);
+            $this->insertLog(Ormawa::where('code', $request->ormawaCode)->first()->id);
+            return redirect()->route('team.home')->with('completed', 'Your answer has been submitted successfully! ✅');
+        }
+
+        return redirect()->route('team.getQuestion', [
+            'page' => $request->page + 1,
+            'ormawaCode' => $request->ormawaCode,
+        ])->with('success', 'Your answer has been submitted successfully! ✅');
+    }
+
+    public function insertLog($ormawaId)
+    {
         DB::table('logs')->insert([
-            'user_id'=>Auth::id(),
-            'ormawa_id'=>$ormawaId,
-            'description'=>"Completed"  
+            'user_id' => Auth::id(),
+            'ormawa_id' => $ormawaId,
+            'description' => "Completed"
         ]);
     }
 }
