@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('style')
     <style>
-        /* Your existing CSS styles */
         #timer {
             font-size: 2rem;
             font-weight: bold;
@@ -49,6 +48,143 @@
             font-weight: bold;
         }
 
+        .layout-container {
+            display: flex;
+            padding: 20px;
+        }
+
+        .left-column {
+            width: 30%;
+            padding-right: 20px;
+            text-align: center;
+        }
+
+        .right-column {
+            width: 70%;
+            padding-left: 50px;
+        }
+
+        .timer-position {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .timer-default {
+            background-color: #d17a32;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            width: 150px;
+            margin-left: auto; /* Rata kanan di desktop */
+            margin-bottom: 20px;
+        }   
+
+        .answer-grid {
+            display: grid;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .answer-grid-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .answer-grid-4 {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+        }
+
+        .answer-option {
+            display: none; 
+        }
+
+        .answer-label {
+            display: block;
+            padding: 15px;
+            background-color: #c69c17;
+            color: white;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #d17a32;
+        }
+
+        .answer-label:hover {
+            background-color: #c69c17;
+            transform: translateY(-2px);
+        }
+
+        .answer-option:checked + .answer-label {
+            background-color: #d17a32;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(209, 122, 50, 0.7);
+        }
+
+        @media screen and (max-width: 768px) {
+            .right-column {
+                padding-top: 50px; 
+            }
+    
+            .timer-default {
+                position: absolute;
+                top: 0px;
+                width: 200px;
+                margin: 0;
+                z-index: 10;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
+    
+            .layout-container {
+                flex-direction: column;
+            }
+
+            .left-column, .right-column {
+                width: 100%;
+                padding: 0;
+            }
+
+            .answer-grid-2, .answer-grid-4 {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                margin-left: 0;
+                margin-right: 0;
+                width: 100% !important;
+                padding: 15px;
+            }
+
+            .answer-grid {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 12px;
+                margin: 0;
+                text-align: center;
+            }
+
+            .answer-grid > div {
+                width: 100%;
+                max-width: 300px; 
+            }
+    
+            .answer-label {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 12px;
+            }
+
+            .form-check{
+                padding: 0;
+            }
+        }
+
+/*
         @media screen and (max-width:980px) {
             .badut {
                 left: 5%;
@@ -70,7 +206,7 @@
             }
         }
 
-
+*/
         /* Your existing media queries */
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
@@ -79,22 +215,30 @@
 @endsection
 
 @section('content')
-    <div class="vw-100 vh-100 position-relative overflow-hidden">
-        <div id="timer" class="text-white text-center w-25 mx-auto rounded" style="background-color: #d17a32;">01:30</div>
-
-        <!-- Initial placeholder time -->
-        <div class="header mt-4">
+<img src="{{ asset('asset/background-05.png') }}" 
+         alt="background" 
+         class="position-fixed w-100 h-100" 
+         style="top:0; left:0; object-fit:cover; z-index: -1;">
+    <div class="layout-container position-relative">
+        <div class="left-column">
+            <div class="header mt-4">
             @if ($ormawa)
                 <div class="mx-auto text-center rounded position-relative" style=>
+                    <h1 class="text-center ormawa mt-5 z-10">{{ $ormawa->name }}</h1>
                     <div class="img-container rounded mx-auto" style="background-color: rgba(255, 255, 255, 0.6)">
                         <img src="{{ asset('logo/ormawa') }}/{{ $ormawa->img_logo }}" class="image" alt="">
                     </div>
-                    <h1 class="text-center ormawa mt-5 z-10">{{ $ormawa->name }}</h1>
                 </div>
             @endif
+            </div>
         </div>
-        <div class="card mx-auto mt-5" style="background-color: #941a0b; width:20rem;">
-            <img src="{{ asset('asset/9.png') }}" alt="topi-badut" class="w-25 position-absolute topi-badut">
+        <div class="right-column">
+            <div id="timer" class="text-white text-center w-25 mx-auto rounded timer-default" style="background-color: #d17a32; width: 200px;">01:30</div>
+
+        <!-- Initial placeholder time -->
+        
+        <div class="card mx-auto mt-5" style="background-color: #355120; width: 95%; max-width: 1200px;">
+            {{-- <img src="{{ asset('asset/9.png') }}" alt="topi-badut" class="w-25 position-absolute topi-badut"> --}}
 
             <div class="card-body">
                 @if (session()->has('wrong'))
@@ -121,19 +265,22 @@
                     <input type="hidden" name="lastPage" value="{{ $questions->lastPage() }}">
                     <input type="hidden" name="question_id" value="{{ $question->id }}">
 
-                    @foreach ($answers as $answer)
+                    <div class="answer-grid answer-grid-{{ count($answers) <= 2 ? '2' : '4' }}">
+                        @foreach ($answers as $answer)
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" id="answer_{{ $answer->id }}" name="answer_id"
+                            <input class="answer-option" type="radio" id="answer_{{ $answer->id }}" name="answer_id"
                                 value="{{ $answer->id }}" required>
-                            <label class="form-check-label text-white" for="answer_{{ $answer->id }}">
+                            <label class=" text-white answer-label" for="answer_{{ $answer->id }}">
                                 {{ $answer->answer_text }}
                             </label>
                         </div>
                     @endforeach
+                    </div>
 
                     <button type="submit" class="btn btn-warning mt-3">Submit</button>
                 </form>
             </div>
+        </div>
         </div>
 
     </div>

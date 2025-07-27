@@ -2,16 +2,34 @@
 
 @section('style')
     <style>
+        body{
+            background-color: transparent;
+        }
+        
         .square {
-            background-color: #941b0c;
+            background-color: #355120;
             border-radius: 2rem;
         }
 
         .btn {
-            background-color: #492469;
-            border-color: #492469;
-
+            background-color: #c69c17;
+            border-color: #c69c17;
         }
+
+        .btn:hover {
+            background-color: #d8b23a; 
+            border-color: #d8b23a;
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+
+        .btn:focus, 
+        .btn:active {
+            background-color: #b38a15;
+            border-color: #b38a15;
+            box-shadow: 0 0 0 0.25rem rgba(198, 156, 23, 0.5);
+        }
+
         .text {
             font-size: 1.5rem;
         }
@@ -19,6 +37,10 @@
 @endsection
 
 @section('content')
+    <img src="{{ asset('asset/background-05.png') }}" 
+         alt="background" 
+         class="position-fixed w-100 h-100" 
+         style="top:0; left:0; object-fit:cover; z-index: -1;">
     <div class="container">
         <h1 class="fs-2">Hello, {{ $name }} 👋</h1>
         <div class="square p-3">
@@ -86,7 +108,7 @@
                 <p class="text-center">No Result Found</p>
             @endif
         </div>
-
+        
     </div>
 @endsection
 

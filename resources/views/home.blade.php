@@ -2,6 +2,27 @@
 
 @section('style')
     <style>
+        body {
+            min-height: 100vh;
+            position: relative;
+            background-color: transparent;
+        }
+        .position-fixed {
+            position: fixed;
+        }
+        .w-100 {
+            width: 100%;
+        }
+        .h-100 {
+            height: 100%;
+        }
+
+        nav {
+            position: relative;
+            z-index: 100; /* Paling depan */
+            width: 100%;
+        }
+        
         .korden {
             top: 0;
             z-index: 0;
@@ -23,13 +44,7 @@
             transform: translateX(-50%);
         }
 
-        .house {
-            width: 50%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .badut {
+        .mascot {
             width: 10%;
         }
 
@@ -41,11 +56,24 @@
             .house {
                 width: 100%;
             }
+
+            .mascot {
+                width: 35%; 
+                max-width: 150px; 
+            }
         }
     </style>
 @endsection
 
 @section('content')
+    <div class="">
+        <img src="{{ asset('asset') }}/background-05.png" alt="background" class="position-fixed w-100 h-100" 
+         style="top:0; left:0; object-fit:cover;">
+        <img id="bird" src="{{ asset('asset') }}/MASKOT MOB-04 (2).png" alt="bird" class="position-absolute mascot"
+            style="right: 5%; bottom: 1%">
+        <img id="tiger" src="{{ asset('asset') }}/MASKOT MOB-03 (1).png" alt="tiger" class="position-absolute mascot"
+            style="left: 5%; bottom: 1%">
+    </div>
     <div class="container position-relative">
         @if (session()->has('completed'))
             <div class="alert alert-success" role="alert">
@@ -59,9 +87,9 @@
         @endif
         <div class="">
             <div id="reader" width="600px" class="text-black mx-auto bg-light rounded"></div>
-            <div class="rounded p-3 mt-3 w-75 mx-auto form" style="background-color: #561414;">
+            <div class="rounded p-3 mt-3 w-75 mx-auto form" style="background-color: #355120;">
                 <form action="{{ route('team.getQuestion', ['page' => 1]) }}" method="GET">
-                    <label for="ormawaField" style="color: #fbc908;" class="mb-1">Code</label>
+                    <label for="ormawaField" style="color: #c69c17;" class="mb-1">Code</label>
                     <input type="password" name="ormawaCode" id="ormawaField" class="w-100" readonly x>
                     <br>
                     <br>
@@ -72,11 +100,7 @@
         </div>
 
     </div>
-    <div class="">
-        <img src="{{ asset('asset') }}/5.png" alt="house" class="position-absolute bottom-0 house">
-        <img id="clown" src="{{ asset('asset') }}/4.png" alt="clown" class="position-absolute badut"
-            style="right: 5%; bottom: 1%">
-    </div>
+    
 @endsection
 
 @section('script')
@@ -113,13 +137,29 @@
     </script>
 
     <script>
-        anime({
-            targets: '#clown',
-            translateX: -100,
-            delay: 2000,
-            direction: 'alternate',
-            loop: true,
-            easing: 'easeInOutSine'
-        });
+        const mascotStates = {
+        bird: {
+            open: "{{ asset('asset') }}/MASKOT MOB-04 (2).png",
+            closed: "{{ asset('asset') }}/MASKOT MOB-08 (1).png"
+        },
+        tiger: {
+            open: "{{ asset('asset') }}/MASKOT MOB-03 (1).png",
+            closed: "{{ asset('asset') }}/MASKOT MOB-07 (1).png"
+        }
+    };
+
+    function blinkMascots() {
+        // Kedipkan mata (tutup)
+        document.getElementById('bird').src = mascotStates.bird.closed;
+        document.getElementById('tiger').src = mascotStates.tiger.closed;
+        
+        // Habis 300ms, buka kembali mata
+        setTimeout(() => {
+            document.getElementById('bird').src = mascotStates.bird.open;
+            document.getElementById('tiger').src = mascotStates.tiger.open;
+        }, 300);
+    }
+
+    setInterval(blinkMascots, 3000);
     </script>
 @endsection

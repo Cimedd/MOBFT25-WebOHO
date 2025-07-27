@@ -31,7 +31,7 @@
 
     <style>
         #app {
-            background-color: #390303;
+            background-color: transparent;
         }
 
         .dropdown-menu {
@@ -39,11 +39,116 @@
         }
 
         .dropdown-item:hover {
-            background-color: #d38d54 !important;
+            background-color: #d38d54;
+        }
+
+        .navbar {
+            padding: 0; 
+            position: relative;
+        }
+
+        .navbar-collapse {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            margin-right: 15px;
+            z-index: 1000;
+        }
+    
+        .navbar .container {
+            max-width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    
+        .navbar img {
+            width: 100%;
+            display: block;
         }
 
         #navbar-toggler {
             border: 1px solid white;
+        }
+
+        .nav-header-image {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+
+        .navbar-toggler {
+            display: none !important; 
+        }
+
+        .navbar .container {
+            max-width: 100%;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar-collapse {
+            position: absolute;
+            right: 20px;
+            top: 50%; 
+            transform: translateY(-50%); 
+            margin-right: 15px;
+            z-index: 1000;
+            background: transparent;
+        }
+
+        @media screen and (max-width: 480px) {
+            .nav-header-image {
+                width: 100vw;
+                height: 7vh; 
+                object-fit: cover;
+                object-position: center top;
+                transform: scale(1.15);
+                transform-origin: top center;
+                margin-left: -3vh;
+                position: relative;
+                left: 0;
+            }
+
+            .navbar {
+                display: flex;
+                flex-direction: column;
+            }
+    
+            .nav-header-image {
+                width: 100vw;
+                height: 7vh;
+                object-fit: cover;
+                object-position: center top;
+            }
+    
+            .navbar-collapse {
+                position: static;
+                transform: none;
+                padding: 25px 15px;
+                display: flex !important; 
+                justify-content: flex-end;
+                width: 100%;
+                margin-top: 0;
+                top: auto;
+            }
+    
+            .nav-link.dropdown-toggle {
+                font-size: 14px;
+                padding: 0.3rem 0.8rem;
+                background-color: rgba(209, 122, 50, 0.7);
+                border-radius: 4px;
+            }
+    
+            .dropdown-menu {
+                position: absolute;
+                right: 15px;
+                left: auto;
+                top: 100%;
+                margin-top: 5px;
+            }
         }
     </style>
     @yield('style')
@@ -53,7 +158,10 @@
     <div id="app" class="vh-100 vw-100 overflow-x-hidden">
         <nav class="navbar navbar-expand-md shadow-sm">
             <div class="container">
-                <h1 class="navbar-brand fs-3">OPEN HOUSE ORMAWA</h1>
+                <img src="{{ asset('asset') }}/HEADER ATASSS-05.png" 
+                alt="OPEN HOUSE ORMAWA"
+                class="nav-header-image"  
+                >
                 <button id="navbar-toggler" class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

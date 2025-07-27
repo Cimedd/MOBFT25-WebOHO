@@ -12,18 +12,56 @@
 
     <style>
         body {
-            background-color: #390303;
+            background-color: #242A35;
+            margin:0;
+            padding: 0;
+        }
+
+        .bg-login {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            object-position: center;
+            left: 0;
+            top: 0;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .container {
+            padding: 0; 
+            max-width: 100%;
+        }
+
+        nav {
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000; 
+        }
+
+        nav img {
+            width: 100%;
+            max-height: 150px;
+            object-fit: cover;
+            display: block;
+            opacity: 1; 
         }
 
         .card {
-            background-color: #941b0c;
+            background-color: #355120;
             top: 20vh;
+            margin-top: 50px;
             left: 50%;
             transform: translateX(-50%);
         }
 
         .btn {
-            background-color: #fbc908;
+            background-color: #c69c17;
 
         }
 
@@ -43,11 +81,6 @@
             bottom: 0px;
         }
 
-        .firework {
-            right: 5rem;
-            width: 20%;
-        }
-
         button {
             background-color:
         }
@@ -61,20 +94,41 @@
             font-family: "Sancreek";
         }
 
+        .nav-header-image {
+            width: 100%;
+            height: auto;
+            max-height: 150px;
+            object-fit: contain;
+            display: block;
+        }
+
         @media screen and (max-width: 480px) {
             .badut {
                 bottom: -3rem;
                 right: -7rem;
             }
 
-            .firework {
-                right: 1rem;
-                top: -1rem;
-                width: 30%;
+            .bg-login {
+                object-position: 65% center; 
+                height: 100vh;
+            }
+
+            
+            .nav-header-image {
+                max-height: 60px !important;
+                object-fit: cover;
+                object-position: center top;
+                width: 100vw;
+                height: 18vh;
+                margin-left: -8px; 
+                transform: scale(1.15);
+                transform-origin: top center;
             }
 
             .home {
                 width: 100%;
+                object-position: 60% top;
+                height: 120vh;
             }
 
         }
@@ -84,7 +138,11 @@
 <body>
     <div class="container position-relative">
         <nav>
-            <h1 class="title mt-4">OPEN HOUSE ORMAWA</h1>
+            <img 
+            src="{{ asset('asset') }}/HEADER ATASSS-05.png" 
+            alt="OPEN HOUSE ORMAWA"  
+            class="nav-header-image"  
+            >
         </nav>
         <div class="card w-75 position-absolute z-1">
             {{-- <div class="card-header">{{ __('LOGIN PAGE') }}</div> --}}
@@ -143,9 +201,9 @@
             </div>
             {{-- <img src="{{ asset('asset') }}/4.png" class="w-75 position-absolute badut bottom" alt=""> --}}
         </div>
-        <img src="{{ asset('asset') }}/11.png" alt="badut" class="position-absolute firework">
+        
     </div>
-    <img src="{{ asset('asset') }}/2.png" alt="carnaval" class="w-100 position-absolute home opacity-50"
+    <img src="{{ asset('asset') }}/BACKGROUND LOGIN-01.png" alt="carnaval" class="bg-login"
         style="left: 50%; transform: translateX(-50%)">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
