@@ -33,6 +33,18 @@
         .text {
             font-size: 1.5rem;
         }
+
+        @font-face {
+            font-family: 'CustomFont';
+            src: url("{{ asset('/fonts/Pine Forest Personal Use Only.otf') }}") format('opentype');
+        }
+
+        .greeting-heading {
+            font-family: 'CustomFont', sans-serif;
+            font-size: 2.5rem;
+            color: #355120;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
     </style>
 @endsection
 
@@ -42,7 +54,7 @@
          class="position-fixed w-100 h-100" 
          style="top:0; left:0; object-fit:cover; z-index: -1;">
     <div class="container">
-        <h1 class="fs-2">Hello, {{ $name }} 👋</h1>
+        <h1 class="greeting-heading">Hello, {{ $name }} 👋</h1>
         <div class="square p-3">
             <p><i class="fa-solid fa-filter"></i> Filter</p>
             <form action="{{ route('admin.result') }}" method="post">

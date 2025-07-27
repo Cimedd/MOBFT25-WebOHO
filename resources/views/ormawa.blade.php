@@ -124,6 +124,18 @@
             box-shadow: 0 0 10px rgba(209, 122, 50, 0.7);
         }
 
+        @font-face {
+            font-family: 'CustomFont';
+            src: url("{{ asset('/fonts/Pine Forest Personal Use Only.otf') }}") format('opentype');
+        }
+
+        .pakai-font {
+            font-family: 'CustomFont', sans-serif;
+            font-size: 2.5rem;
+            color: #355120;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
         @media screen and (max-width: 768px) {
             .right-column {
                 padding-top: 50px; 
@@ -224,7 +236,7 @@
             <div class="header mt-4">
             @if ($ormawa)
                 <div class="mx-auto text-center rounded position-relative" style=>
-                    <h1 class="text-center ormawa mt-5 z-10">{{ $ormawa->name }}</h1>
+                    <h1 class="text-center ormawa mt-5 z-10 pakai-font">{{ $ormawa->name }}</h1>
                     <div class="img-container rounded mx-auto" style="background-color: rgba(255, 255, 255, 0.6)">
                         <img src="{{ asset('logo/ormawa') }}/{{ $ormawa->img_logo }}" class="image" alt="">
                     </div>
@@ -252,7 +264,7 @@
                     </div>
                 @endif
                 {{-- Use $questions for pagination data --}}
-                <h2 class="card-title">
+                <h2 class="card-title pakai-font">
                     Question {{ $questions->currentPage() }} of {{ $questions->lastPage() }}
                 </h2>
 
@@ -285,7 +297,7 @@
 
     </div>
     <div class="mt-5 bottom-0">
-        <h1 class="text-center">~ Good Luck ~</h1>
+        <h1 class="text-center pakai-font">~ Good Luck ~</h1>
     </div>
     </div>
 @endsection
