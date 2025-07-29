@@ -67,11 +67,11 @@
 
 @section('content')
     <div class="">
-        <img src="{{ asset('asset') }}/background-05.png" alt="background" class="position-fixed w-100 h-100" 
+        <img src="{{ asset('asset') }}/background-05.webp" alt="background" class="position-fixed w-100 h-100" 
          style="top:0; left:0; object-fit:cover;">
-        <img id="bird" src="{{ asset('asset') }}/MASKOT MOB-04 (2).png" alt="bird" class="position-absolute mascot"
+        <img id="bird" src="{{ asset('asset') }}/MASKOT MOB-04 (2).webp" alt="bird" class="position-absolute mascot"
             style="right: 5%; bottom: 1%">
-        <img id="tiger" src="{{ asset('asset') }}/MASKOT MOB-03 (1).png" alt="tiger" class="position-absolute mascot"
+        <img id="tiger" src="{{ asset('asset') }}/MASKOT MOB-03 (1).webp" alt="tiger" class="position-absolute mascot"
             style="left: 5%; bottom: 1%">
     </div>
     <div class="container position-relative">
@@ -139,12 +139,12 @@
     <script>
         const mascotStates = {
         bird: {
-            open: "{{ asset('asset') }}/MASKOT MOB-04 (2).png",
-            closed: "{{ asset('asset') }}/MASKOT MOB-08 (1).png"
+            open: "{{ asset('asset') }}/MASKOT MOB-04 (2).webp",
+            closed: "{{ asset('asset') }}/MASKOT MOB-08 (1).webp"
         },
         tiger: {
-            open: "{{ asset('asset') }}/MASKOT MOB-03 (1).png",
-            closed: "{{ asset('asset') }}/MASKOT MOB-07 (1).png"
+            open: "{{ asset('asset') }}/MASKOT MOB-03 (1).webp",
+            closed: "{{ asset('asset') }}/MASKOT MOB-07 (1).webp"
         }
     };
 

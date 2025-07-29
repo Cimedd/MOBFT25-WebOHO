@@ -49,7 +49,7 @@
 @endsection
 
 @section('content')
-    <img src="{{ asset('asset/background-05.png') }}" 
+    <img src="{{ asset('asset/background-05.webp') }}" 
          alt="background" 
          class="position-fixed w-100 h-100" 
          style="top:0; left:0; object-fit:cover; z-index: -1;">

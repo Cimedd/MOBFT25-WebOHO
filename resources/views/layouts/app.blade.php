@@ -158,7 +158,7 @@
     <div id="app" class="vh-100 vw-100 overflow-x-hidden">
         <nav class="navbar navbar-expand-md shadow-sm">
             <div class="container">
-                <img src="{{ asset('asset') }}/HEADER ATASSS-05.png" 
+                <img src="{{ asset('asset') }}/HEADER ATASSS-05.webp" 
                 alt="OPEN HOUSE ORMAWA"
                 class="nav-header-image"  
                 >

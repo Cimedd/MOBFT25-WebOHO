@@ -139,7 +139,7 @@
     <div class="container position-relative">
         <nav>
             <img 
-            src="{{ asset('asset') }}/HEADER ATASSS-05.png" 
+            src="{{ asset('asset') }}/HEADER ATASSS-05.webp" 
             alt="OPEN HOUSE ORMAWA"  
             class="nav-header-image"  
             >
@@ -203,7 +203,7 @@
         </div>
         
     </div>
-    <img src="{{ asset('asset') }}/BACKGROUND LOGIN-01.png" alt="carnaval" class="bg-login"
+    <img src="{{ asset('asset') }}/BACKGROUND LOGIN-01.webp" alt="carnaval" class="bg-login"
         style="left: 50%; transform: translateX(-50%)">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
