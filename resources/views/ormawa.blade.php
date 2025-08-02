@@ -77,10 +77,10 @@
             font-size: 1.5rem;
             font-weight: bold;
             text-align: center;
-            width: 150px;
+            width: fit-content;
             margin-left: auto; /* Rata kanan di desktop */
             margin-bottom: 20px;
-        }   
+        }
 
         .answer-grid {
             display: grid;
@@ -98,7 +98,7 @@
         }
 
         .answer-option {
-            display: none; 
+            display: none;
         }
 
         .answer-label {
@@ -118,7 +118,7 @@
             transform: translateY(-2px);
         }
 
-        .answer-option:checked + .answer-label {
+        .answer-option:checked+.answer-label {
             background-color: #d17a32;
             font-weight: bold;
             box-shadow: 0 0 10px rgba(209, 122, 50, 0.7);
@@ -133,33 +133,35 @@
             font-family: 'CustomFont', sans-serif;
             font-size: 2.5rem;
             color: #355120;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         @media screen and (max-width: 768px) {
             .right-column {
-                padding-top: 50px; 
+                padding-top: 50px;
             }
-    
+
             .timer-default {
                 position: absolute;
                 top: 0px;
-                width: 200px;
+                /* width: fit-content; */
                 margin: 0;
                 z-index: 10;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
             }
-    
+
             .layout-container {
                 flex-direction: column;
             }
 
-            .left-column, .right-column {
+            .left-column,
+            .right-column {
                 width: 100%;
                 padding: 0;
             }
 
-            .answer-grid-2, .answer-grid-4 {
+            .answer-grid-2,
+            .answer-grid-4 {
                 grid-template-columns: 1fr;
             }
 
@@ -180,45 +182,45 @@
                 text-align: center;
             }
 
-            .answer-grid > div {
+            .answer-grid>div {
                 width: 100%;
-                max-width: 300px; 
+                max-width: 300px;
             }
-    
+
             .answer-label {
                 width: 100%;
                 box-sizing: border-box;
                 padding: 12px;
             }
 
-            .form-check{
+            .form-check {
                 padding: 0;
             }
         }
 
-/*
-        @media screen and (max-width:980px) {
-            .badut {
-                left: 5%;
-                bottom: 2%;
-                width: 25%;
-            }
+        /*
+            @media screen and (max-width:980px) {
+                .badut {
+                    left: 5%;
+                    bottom: 2%;
+                    width: 25%;
+                }
 
-            .topi {
-                right: 5%;
-                width: 25%;
-            }
+                .topi {
+                    right: 5%;
+                    width: 25%;
+                }
 
-            @media screen and (max-width:900px) {
+                @media screen and (max-width:900px) {
 
-                .image,
-                .img-container {
-                    width: 75%;
+                    .image,
+                    .img-container {
+                        width: 75%;
+                    }
                 }
             }
-        }
 
-*/
+    */
         /* Your existing media queries */
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
@@ -227,72 +229,70 @@
 @endsection
 
 @section('content')
-<img src="{{ asset('asset/background-05.webp') }}" 
-         alt="background" 
-         class="position-fixed w-100 h-100" 
-         style="top:0; left:0; object-fit:cover; z-index: -1;">
+    <img src="{{ asset('asset/background-05.webp') }}" alt="background" class="position-fixed w-100 h-100"
+        style="top:0; left:0; object-fit:cover; z-index: -1;">
     <div class="layout-container position-relative">
         <div class="left-column">
             <div class="header mt-4">
-            @if ($ormawa)
-                <div class="mx-auto text-center rounded position-relative" style=>
-                    <h1 class="text-center ormawa mt-5 z-10 pakai-font">{{ $ormawa->name }}</h1>
-                    <div class="img-container rounded mx-auto" style="background-color: rgba(255, 255, 255, 0.6)">
-                        <img src="{{ asset('logo/ormawa') }}/{{ $ormawa->img_logo }}" class="image" alt="">
+                @if ($ormawa)
+                    <div class="mx-auto text-center rounded position-relative" style=>
+                        <h1 class="text-center ormawa mt-5 z-10 pakai-font">{{ $ormawa->name }}</h1>
+                        <div class="img-container rounded py-4 mx-auto" style="background-color: rgba(255, 255, 255, 0.8);">
+                            <img src="{{ asset('logo/ormawa') }}/{{ $ormawa->img_logo }}" class="image" alt="">
+                        </div>
                     </div>
-                </div>
-            @endif
+                @endif
             </div>
         </div>
         <div class="right-column">
-            <div id="timer" class="text-white text-center w-25 mx-auto rounded timer-default" style="background-color: #d17a32; width: 200px;">01:30</div>
+            <div id="timer" class="text-white text-center w-fit md:w-fit mx-auto rounded timer-default"
+                style="background-color: #d17a32;"></div>
+            <!-- Initial placeholder time -->
 
-        <!-- Initial placeholder time -->
-        
-        <div class="card mx-auto mt-5" style="background-color: #355120; width: 95%; max-width: 1200px;">
-            {{-- <img src="{{ asset('asset/9.png') }}" alt="topi-badut" class="w-25 position-absolute topi-badut"> --}}
+            <div class="card mx-auto mt-5" style="background-color: #355120; width: 95%; max-width: 1200px;">
+                {{-- <img src="{{ asset('asset/9.png') }}" alt="topi-badut" class="w-25 position-absolute topi-badut"> --}}
 
-            <div class="card-body">
-                @if (session()->has('wrong'))
-                    <div class="alert alert-danger" role="alert">
-                        {{ session()->get('wrong') }}
-                    </div>
-                @endif
-                @if (session()->has('success'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session()->get('success') }}
-                    </div>
-                @endif
-                {{-- Use $questions for pagination data --}}
-                <h2 class="card-title pakai-font">
-                    Question {{ $questions->currentPage() }} of {{ $questions->lastPage() }}
-                </h2>
-
-                <p id="question">{{ $question->question }}</p>
-
-                <form action="/team/answer" method="POST">
-                    @csrf
-                    <input type="hidden" name="ormawaCode" value="{{ $ormawa->code }}">
-                    <input type="hidden" name="page" value="{{ $questions->currentPage() }}">
-                    <input type="hidden" name="lastPage" value="{{ $questions->lastPage() }}">
-                    <input type="hidden" name="question_id" value="{{ $question->id }}">
-
-                    <div class="answer-grid answer-grid-{{ count($answers) <= 2 ? '2' : '4' }}">
-                        @foreach ($answers as $answer)
-                        <div class="form-check">
-                            <input class="answer-option" type="radio" id="answer_{{ $answer->id }}" name="answer_id"
-                                value="{{ $answer->id }}" required>
-                            <label class=" text-white answer-label" for="answer_{{ $answer->id }}">
-                                {{ $answer->answer_text }}
-                            </label>
+                <div class="card-body">
+                    @if (session()->has('wrong'))
+                        <div class="alert alert-danger" style='font-size: 1.25rem; font-weight:800' role="alert">
+                            {{ session()->get('wrong') }}
                         </div>
-                    @endforeach
-                    </div>
+                    @endif
+                    @if (session()->has('success'))
+                        <div class="alert alert-success" style='font-size: 1.25rem; font-weight:800' role="alert">
+                            {{ session()->get('success') }}
+                        </div>
+                    @endif
+                    {{-- Use $questions for pagination data --}}
+                    <h2 class="card-title pakai-font">
+                        Question {{ $questions->currentPage() }} of {{ $questions->lastPage() }}
+                    </h2>
 
-                    <button type="submit" class="btn btn-warning mt-3">Submit</button>
-                </form>
+                    <p id="question">{{ $question->question }}</p>
+
+                    <form action="/team/answer" method="POST">
+                        @csrf
+                        <input type="hidden" name="ormawaCode" value="{{ $ormawa->code }}">
+                        <input type="hidden" name="page" value="{{ $questions->currentPage() }}">
+                        <input type="hidden" name="lastPage" value="{{ $questions->lastPage() }}">
+                        <input type="hidden" name="question_id" value="{{ $question->id }}">
+
+                        <div class="answer-grid answer-grid-{{ count($answers) <= 2 ? '2' : '4' }}">
+                            @foreach ($answers as $answer)
+                                <div class="form-check">
+                                    <input class="answer-option" type="radio" id="answer_{{ $answer->id }}"
+                                        name="answer_id" value="{{ $answer->id }}" required>
+                                    <label class=" text-white answer-label" for="answer_{{ $answer->id }}">
+                                        {{ $answer->answer_text }}
+                                    </label>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <button type="submit" class="btn btn-warning mt-3">Submit</button>
+                    </form>
+                </div>
             </div>
-        </div>
         </div>
 
     </div>
@@ -316,18 +316,34 @@
             let counter = 0;
             let question = @json($question);
             let ormawa = @json($ormawa);
-            let totalTime = 60000; //waktu 1 menit
+            // console.log(ormawa)
+            let totalTime = 180000; //waktu 1 menit
             let timerElement = $('#timer');
             let intervalId;
+            let startTime;
+
+            function getStartTime() {
+                return $.ajax({
+                    type: "GET",
+                    url: `{{ route('team.getStartTime', ['ormawaCode' => $ormawa->id]) }}`,
+                    dataType: "json",
+                });
+            }
+
+            getStartTime().done(function(response) {
+                startTime = new Date(response.start_time).getTime();
+                startTimer(totalTime);
+            }).fail(function() {
+                startTime = null; // Fallback to current time if fetching fails
+            });
+
 
             function startTimer(duration) {
-                let startTime = Date.now();
                 let endTime = startTime + duration;
 
                 function updateTimer() {
                     let now = Date.now();
                     let remaining = endTime - now;
-
                     if (remaining <= 0) {
                         clearInterval(intervalId);
                         timerElement.text('00:00');
@@ -349,7 +365,7 @@
             function handleTimerExpiry() {
                 $.ajax({
                     type: "post",
-                    url: "{{ route('team.insert.log') }}",
+                    url: "{{ route('team.insert.log')}}",
                     data: {
                         '_token': "{{ csrf_token() }}",
                         'ormawa_id': ormawa.id,
@@ -365,70 +381,6 @@
                     }
                 });
             }
-
-            $("#true").click(function(e) {
-                e.preventDefault();
-                $.ajax({
-                    type: "post",
-                    url: "{{ route('team.answerQuestion') }}",
-                    data: {
-                        '_token': "{{ csrf_token() }}",
-                        'answer': 1,
-                        'question_id': question[counter].id
-                    },
-                    success: function(response) {
-                        toastr.success('Answer has been submitted!');
-                        updateQuestion();
-                    }
-                });
-            });
-
-            $("#false").click(function(e) {
-                e.preventDefault();
-                $.ajax({
-                    type: "post",
-                    url: "{{ route('team.answerQuestion') }}",
-                    data: {
-                        '_token': "{{ csrf_token() }}",
-                        'answer': 0,
-                        'question_id': question[counter].id
-                    },
-                    success: function(response) {
-                        toastr.success('Answer has been submitted!');
-                        updateQuestion();
-                    }
-                });
-            });
-
-            function updateQuestion() {
-                counter++;
-
-                if (counter > 4) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'You have completed the mission!',
-                        icon: 'success',
-                        confirmButtonText: 'Done'
-                    }).then(() => {
-                        $.ajax({
-                            type: "post",
-                            url: "{{ route('team.insert.log') }}",
-                            data: {
-                                '_token': "{{ csrf_token() }}",
-                                'ormawa_id': ormawa.id,
-                            },
-                            success: function(response) {
-                                window.location.href = "{{ route('team.home') }}";
-                            }
-                        });
-                    });
-                } else {
-                    $("#numQuestion").text("Question " + (counter + 1));
-                    $("#question").text(question[counter].question);
-                }
-            }
-
-            startTimer(totalTime);
         });
     </script>
 @endsection

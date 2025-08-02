@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ormawa;
 use App\Models\Question;
+use App\Models\StartTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -23,6 +24,25 @@ class QuestionController extends Controller
 
         $ormawa = DB::table('ormawas')->where('code', $request->ormawaCode)->first();
         $code = $request->ormawaCode;
+
+        $notStarted = DB::table('start_time')
+            ->where('user_id', Auth::id())
+            ->where('ormawa_id', $ormawa->id)
+            ->doesntExist();
+        $noAnswers = DB::table('answers')
+            ->select('question_id')
+            ->join('questions', 'answers.question_id', '=', 'questions.id')
+            ->where('questions.ormawa_id', $ormawa->id)
+            ->where('answers.user_id', Auth::id())
+            ->doesntExist();
+        
+        if ($notStarted && $noAnswers) {
+            StartTime::create([
+                'start_time' => now('Asia/Jakarta'),
+                'user_id' => Auth::id(),
+                'ormawa_id' => $ormawa->id,
+            ]);
+        }
 
         $answered = DB::table('logs')->where('user_id', Auth::id())
             ->where('ormawa_id', $ormawa->id)
@@ -141,9 +161,14 @@ class QuestionController extends Controller
                 'ormawa_code' => $request->ormawaCode,
                 'ormawa_id' => $id
             ]);
-            $this->insertLog(Ormawa::where('code', $request->ormawaCode)->first()->id);
+            $this->insertLogId(Ormawa::where('code', $request->ormawaCode)->first()->id);
             return redirect()->route('team.home')->with('completed', 'Your answer has been submitted successfully! ✅');
         }
+
+        $startTime = DB::table('start_time')
+            ->where('user_id', Auth::id())
+            ->where('ormawa_id', $id)
+            ->value('start_time');
 
         return redirect()->route('team.getQuestion', [
             'page' => $request->page + 1,
@@ -151,12 +176,37 @@ class QuestionController extends Controller
         ])->with('success', 'Your answer has been submitted successfully! ✅');
     }
 
-    public function insertLog($ormawaId)
+    public function insertLog(Request $request)
+    {
+        $request->validate([
+            'ormawa_id' => 'required|exists:ormawas,id',
+        ]);
+        $ormawaId = $request->ormawa_id;
+        DB::table('logs')->insert([
+            'user_id' => Auth::id(),
+            'ormawa_id' => $ormawaId,
+            'description' => "Times Up"
+        ]);
+    }
+
+    public function insertLogId($ormawaId)
     {
         DB::table('logs')->insert([
             'user_id' => Auth::id(),
             'ormawa_id' => $ormawaId,
             'description' => "Completed"
+        ]);
+    }
+
+    public function getStartTime($ormawaId)
+    {
+        $startTime = DB::table('start_time')
+            ->where('user_id', Auth::id())
+            ->where('ormawa_id', $ormawaId)
+            ->value('start_time');
+
+        return response()->json([
+            'start_time' => $startTime,
         ]);
     }
 }

@@ -76,12 +76,12 @@
     </div>
     <div class="container position-relative">
         @if (session()->has('completed'))
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-success" style='font-size: 1.25rem; font-weight:800' role="alert">
                 {{ session()->get('completed') }}
             </div>
         @endif
         @if (session()->has('wrong'))
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-danger" style='font-size: 1.25rem; font-weight:800' role="alert">
                 {{ session()->get('wrong') }}
             </div>
         @endif
@@ -112,7 +112,7 @@
     <script>
         function onScanSuccess(decodedText, decodedResult) {
             // handle the scanned code as you like, for example:
-            console.log(`Code matched = ${decodedText}`, decodedResult);
+            // console.log(`Code matched = ${decodedText}`, decodedResult);
             // $("#ormawaField").text(`${decodedText}`);
             $('#ormawaField').attr("value", `${decodedText}`);
         }
@@ -120,7 +120,7 @@
         function onScanFailure(error) {
             // handle scan failure, usually better to ignore and keep scanning.
             // for example:
-            console.warn(`Code scan error = ${error}`);
+            // console.warn(`Code scan error = ${error}`);
         }
 
         let html5QrcodeScanner = new Html5QrcodeScanner(

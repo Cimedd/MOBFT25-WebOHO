@@ -6,8 +6,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MOB FT 2024</title>
+    <title>OHO MOB FT 2025</title>
     <link rel="stylesheet" href="{{ asset('css') }}/fonts.css">
+    <link rel="icon" href="{{ asset('logo') }}/LOGO.webp">
+
+    {{-- font-awesome --}}
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <style>

@@ -36,6 +36,8 @@ Route::group(['middleware'=>'team', 'prefix'=>'team', 'as'=>'team.'], function()
     Route::post('/check', [QuestionController::class, 'check'])->name('check');
     
     Route::post('/insert', [QuestionController::class, 'insertLog'])->name('insert.log');
+
+    Route::get('/time/{ormawaCode}', [QuestionController::class, 'getStartTime'])->name('getStartTime');
 });
 
 
