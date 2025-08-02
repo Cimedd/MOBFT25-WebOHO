@@ -316,7 +316,7 @@
             let counter = 0;
             let question = @json($question);
             let ormawa = @json($ormawa);
-            let totalTime = 60000000; //waktu 1 menit
+            let totalTime = 60000; //waktu 1 menit
             let timerElement = $('#timer');
             let intervalId;
 
