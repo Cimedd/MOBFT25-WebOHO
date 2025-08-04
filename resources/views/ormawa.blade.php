@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<title>OHO MOB FT 2025</title>
 @section('style')
     <style>
         #timer {
@@ -317,7 +318,7 @@
             let question = @json($question);
             let ormawa = @json($ormawa);
             // console.log(ormawa)
-            let totalTime = 180000; //waktu 1 menit
+            let totalTime = 90000; //waktu 1 menit
             let timerElement = $('#timer');
             let intervalId;
             let startTime;

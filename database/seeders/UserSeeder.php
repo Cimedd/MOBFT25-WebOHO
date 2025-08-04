@@ -16,162 +16,162 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name'=>'Arcadia 1',
-                'username'=>'arcadia1',
-                'email'=>'acardia1@gmail.com',
-                'password'=>Hash::make('1arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 1',
+                'username'=>'cakrawala1',
+                'email'=>'cakrawala1@gmail.com',
+                'password'=>Hash::make('1cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 2',
-                'username'=>'arcadia2',
-                'email'=>'acardia2@gmail.com',
-                'password'=>Hash::make('2arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 2',
+                'username'=>'cakrawala2',
+                'email'=>'cakrawala2@gmail.com',
+                'password'=>Hash::make('2cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 3',
-                'username'=>'arcadia3',
-                'email'=>'acardia3@gmail.com',
-                'password'=>Hash::make('3arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 3',
+                'username'=>'cakrawala3',
+                'email'=>'cakrawala3@gmail.com',
+                'password'=>Hash::make('3cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 4',
-                'username'=>'arcadia4',
-                'email'=>'acardia4@gmail.com',
-                'password'=>Hash::make('4arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 4',
+                'username'=>'cakrawala4',
+                'email'=>'cakrawala4@gmail.com',
+                'password'=>Hash::make('4cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 5',
-                'username'=>'arcadia5',
-                'email'=>'acardia5@gmail.com',
-                'password'=>Hash::make('5arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 5',
+                'username'=>'cakrawala5',
+                'email'=>'cakrawala5@gmail.com',
+                'password'=>Hash::make('5cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 6',
-                'username'=>'arcadia6',
-                'email'=>'acardia6@gmail.com',
-                'password'=>Hash::make('6arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 6',
+                'username'=>'cakrawala6',
+                'email'=>'cakrawala6@gmail.com',
+                'password'=>Hash::make('6cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 7',
-                'username'=>'arcadia7',
-                'email'=>'acardia7@gmail.com',
-                'password'=>Hash::make('7arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 7',
+                'username'=>'cakrawala7',
+                'email'=>'cakrawala7@gmail.com',
+                'password'=>Hash::make('7cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 8',
-                'username'=>'arcadia8',
-                'email'=>'acardia8@gmail.com',
-                'password'=>Hash::make('8arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 8',
+                'username'=>'cakrawala8',
+                'email'=>'cakrawala8@gmail.com',
+                'password'=>Hash::make('8cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 9',
-                'username'=>'arcadia9',
-                'email'=>'acardia9@gmail.com',
-                'password'=>Hash::make('9arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 9',
+                'username'=>'cakrawala9',
+                'email'=>'cakrawala9@gmail.com',
+                'password'=>Hash::make('9cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 10',
-                'username'=>'arcadia10',
-                'email'=>'acardia10@gmail.com',
-                'password'=>Hash::make('10arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 10',
+                'username'=>'cakrawala10',
+                'email'=>'cakrawala10@gmail.com',
+                'password'=>Hash::make('10cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 11',
-                'username'=>'arcadia11',
-                'email'=>'acardia11@gmail.com',
-                'password'=>Hash::make('11arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 11',
+                'username'=>'cakrawala11',
+                'email'=>'cakrawala11@gmail.com',
+                'password'=>Hash::make('11cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 12',
-                'username'=>'arcadia12',
-                'email'=>'acardia12@gmail.com',
-                'password'=>Hash::make('12arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 12',
+                'username'=>'cakrawala12',
+                'email'=>'cakrawala12@gmail.com',
+                'password'=>Hash::make('12cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 13',
-                'username'=>'arcadia13',
-                'email'=>'acardia13@gmail.com',
-                'password'=>Hash::make('13arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 13',
+                'username'=>'cakrawala13',
+                'email'=>'cakrawala13@gmail.com',
+                'password'=>Hash::make('13cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 14',
-                'username'=>'arcadia14',
-                'email'=>'acardia14@gmail.com',
-                'password'=>Hash::make('14arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 14',
+                'username'=>'cakrawala14',
+                'email'=>'cakrawala14@gmail.com',
+                'password'=>Hash::make('14cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 15',
-                'username'=>'arcadia15',
-                'email'=>'acardia15@gmail.com',
-                'password'=>Hash::make('15arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 15',
+                'username'=>'cakrawala15',
+                'email'=>'cakrawala15@gmail.com',
+                'password'=>Hash::make('15cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 16',
-                'username'=>'arcadia16',
-                'email'=>'acardia16@gmail.com',
-                'password'=>Hash::make('16arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 16',
+                'username'=>'cakrawala16',
+                'email'=>'cakrawala16@gmail.com',
+                'password'=>Hash::make('16cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 17',
-                'username'=>'arcadia17',
-                'email'=>'acardia17@gmail.com',
-                'password'=>Hash::make('17arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 17',
+                'username'=>'cakrawala17',
+                'email'=>'cakrawala17@gmail.com',
+                'password'=>Hash::make('17cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 18',
-                'username'=>'arcadia18',
-                'email'=>'acardia18@gmail.com',
-                'password'=>Hash::make('18arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 18',
+                'username'=>'cakrawala18',
+                'email'=>'cakrawala18@gmail.com',
+                'password'=>Hash::make('18cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 19',
-                'username'=>'arcadia19',
-                'email'=>'acardia19@gmail.com',
-                'password'=>Hash::make('19arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 19',
+                'username'=>'cakrawala19',
+                'email'=>'cakrawala19@gmail.com',
+                'password'=>Hash::make('19cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Arcadia 20',
-                'username'=>'arcadia20',
-                'email'=>'acardia20@gmail.com',
-                'password'=>Hash::make('20arcadiaMOBFT24!'),
+                'name'=>'Cakrawala 20',
+                'username'=>'cakrawala20',
+                'email'=>'cakrawala20@gmail.com',
+                'password'=>Hash::make('20cakrawalaMOBFT24!'),
                 'role'=>'team'
             ],
             [
                 'name'=>'Koor AD',
-                'username'=>'ditha',
-                'email'=>'dithaAD@gmail.com',
-                'password'=>Hash::make('dithaADMOBFT2024'),
+                'username'=>'koorad',
+                'email'=>'koorad@gmail.com',
+                'password'=>Hash::make('koorADMOBFT2024'),
                 'role'=>'panitia'
             ],
             [
                 'name'=>'Wakoor AD',
-                'username'=>'bagas',
+                'username'=>'wakoorad',
                 'email'=>'bagasAD@gmail.com',
-                'password'=>Hash::make('bagasADMOBFT2024'),
+                'password'=>Hash::make('wakoorADMOBFT2024'),
                 'role'=>'panitia'
             ],
             [
                 'name'=>'Anggota AD',
-                'username'=>'anggotaAD',
+                'username'=>'anggotaad',
                 'email'=>'anggotaAD@gmail.com',
                 'password'=>Hash::make('anggotaADMOBFT2024'),
                 'role'=>'panitia'

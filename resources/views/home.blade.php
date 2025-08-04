@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<title>OHO MOB FT 2025</title>
 @section('style')
     <style>
         body {

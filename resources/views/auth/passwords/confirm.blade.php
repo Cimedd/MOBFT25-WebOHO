@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<title>OHO MOB FT 2025</title>
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
