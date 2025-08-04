@@ -16,143 +16,143 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'name'=>'Cakrawala 1',
-                'username'=>'cakrawala1',
-                'email'=>'cakrawala1@gmail.com',
-                'password'=>Hash::make('1cakrawalaMOBFT25!'),
+                'name'=>'Semesta 1',
+                'username'=>'semesta1',
+                'email'=>'semesta1@gmail.com',
+                'password'=>Hash::make('1semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 2',
-                'username'=>'cakrawala2',
-                'email'=>'cakrawala2@gmail.com',
-                'password'=>Hash::make('2cakrawalaMOBFT25!'),
+                'name'=>'Semesta 2',
+                'username'=>'semesta2',
+                'email'=>'semesta2@gmail.com',
+                'password'=>Hash::make('2semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 3',
-                'username'=>'cakrawala3',
-                'email'=>'cakrawala3@gmail.com',
-                'password'=>Hash::make('3cakrawalaMOBFT25!'),
+                'name'=>'Semesta 3',
+                'username'=>'semesta3',
+                'email'=>'semesta3@gmail.com',
+                'password'=>Hash::make('3semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 4',
-                'username'=>'cakrawala4',
-                'email'=>'cakrawala4@gmail.com',
-                'password'=>Hash::make('4cakrawalaMOBFT25!'),
+                'name'=>'Semesta 4',
+                'username'=>'semesta4',
+                'email'=>'semesta4@gmail.com',
+                'password'=>Hash::make('4semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 5',
-                'username'=>'cakrawala5',
-                'email'=>'cakrawala5@gmail.com',
-                'password'=>Hash::make('5cakrawalaMOBFT25!'),
+                'name'=>'Semesta 5',
+                'username'=>'semesta5',
+                'email'=>'semesta5@gmail.com',
+                'password'=>Hash::make('5semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 6',
-                'username'=>'cakrawala6',
-                'email'=>'cakrawala6@gmail.com',
-                'password'=>Hash::make('6cakrawalaMOBFT25!'),
+                'name'=>'Semesta 6',
+                'username'=>'semesta6',
+                'email'=>'semesta6@gmail.com',
+                'password'=>Hash::make('6semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 7',
-                'username'=>'cakrawala7',
-                'email'=>'cakrawala7@gmail.com',
-                'password'=>Hash::make('7cakrawalaMOBFT25!'),
+                'name'=>'Semesta 7',
+                'username'=>'semesta7',
+                'email'=>'semesta7@gmail.com',
+                'password'=>Hash::make('7semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 8',
-                'username'=>'cakrawala8',
-                'email'=>'cakrawala8@gmail.com',
-                'password'=>Hash::make('8cakrawalaMOBFT25!'),
+                'name'=>'Semesta 8',
+                'username'=>'semesta8',
+                'email'=>'semesta8@gmail.com',
+                'password'=>Hash::make('8semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 9',
-                'username'=>'cakrawala9',
-                'email'=>'cakrawala9@gmail.com',
-                'password'=>Hash::make('9cakrawalaMOBFT25!'),
+                'name'=>'Semesta 9',
+                'username'=>'semesta9',
+                'email'=>'semesta9@gmail.com',
+                'password'=>Hash::make('9semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 10',
-                'username'=>'cakrawala10',
-                'email'=>'cakrawala10@gmail.com',
-                'password'=>Hash::make('10cakrawalaMOBFT25!'),
+                'name'=>'Semesta 10',
+                'username'=>'semesta10',
+                'email'=>'semesta10@gmail.com',
+                'password'=>Hash::make('10semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 11',
-                'username'=>'cakrawala11',
-                'email'=>'cakrawala11@gmail.com',
-                'password'=>Hash::make('11cakrawalaMOBFT25!'),
+                'name'=>'Semesta 11',
+                'username'=>'semesta11',
+                'email'=>'semesta11@gmail.com',
+                'password'=>Hash::make('11semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 12',
-                'username'=>'cakrawala12',
-                'email'=>'cakrawala12@gmail.com',
-                'password'=>Hash::make('12cakrawalaMOBFT25!'),
+                'name'=>'Semesta 12',
+                'username'=>'semesta12',
+                'email'=>'semesta12@gmail.com',
+                'password'=>Hash::make('12semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 13',
-                'username'=>'cakrawala13',
-                'email'=>'cakrawala13@gmail.com',
-                'password'=>Hash::make('13cakrawalaMOBFT25!'),
+                'name'=>'Semesta 13',
+                'username'=>'semesta13',
+                'email'=>'semesta13@gmail.com',
+                'password'=>Hash::make('13semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 14',
-                'username'=>'cakrawala14',
-                'email'=>'cakrawala14@gmail.com',
-                'password'=>Hash::make('14cakrawalaMOBFT25!'),
+                'name'=>'Semesta 14',
+                'username'=>'semesta14',
+                'email'=>'semesta14@gmail.com',
+                'password'=>Hash::make('14semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 15',
-                'username'=>'cakrawala15',
-                'email'=>'cakrawala15@gmail.com',
-                'password'=>Hash::make('15cakrawalaMOBFT25!'),
+                'name'=>'Semesta 15',
+                'username'=>'semesta15',
+                'email'=>'semesta15@gmail.com',
+                'password'=>Hash::make('15semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 16',
-                'username'=>'cakrawala16',
-                'email'=>'cakrawala16@gmail.com',
-                'password'=>Hash::make('16cakrawalaMOBFT25!'),
+                'name'=>'Semesta 16',
+                'username'=>'semesta16',
+                'email'=>'semesta16@gmail.com',
+                'password'=>Hash::make('16semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 17',
-                'username'=>'cakrawala17',
-                'email'=>'cakrawala17@gmail.com',
-                'password'=>Hash::make('17cakrawalaMOBFT25!'),
+                'name'=>'Semesta 17',
+                'username'=>'semesta17',
+                'email'=>'semesta17@gmail.com',
+                'password'=>Hash::make('17semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 18',
-                'username'=>'cakrawala18',
-                'email'=>'cakrawala18@gmail.com',
-                'password'=>Hash::make('18cakrawalaMOBFT25!'),
+                'name'=>'Semesta 18',
+                'username'=>'semesta18',
+                'email'=>'semesta18@gmail.com',
+                'password'=>Hash::make('18semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 19',
-                'username'=>'cakrawala19',
-                'email'=>'cakrawala19@gmail.com',
-                'password'=>Hash::make('19cakrawalaMOBFT25!'),
+                'name'=>'Semesta 19',
+                'username'=>'semesta19',
+                'email'=>'semesta19@gmail.com',
+                'password'=>Hash::make('19semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
-                'name'=>'Cakrawala 20',
-                'username'=>'cakrawala20',
-                'email'=>'cakrawala20@gmail.com',
-                'password'=>Hash::make('20cakrawalaMOBFT25!'),
+                'name'=>'Semesta 20',
+                'username'=>'semesta20',
+                'email'=>'semesta20@gmail.com',
+                'password'=>Hash::make('20semestaMOBFT25!'),
                 'role'=>'team'
             ],
             [
