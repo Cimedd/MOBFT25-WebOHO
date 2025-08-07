@@ -86,7 +86,7 @@
             </form>
 
             <br>
-            @if (session('result') && session('result')->isNotEmpty())
+            @if (session('questions') && session('count') > 0)
                 <h2>Result</h2>
                 <p class="text">Ormawa : {{ session('ormawaName') }}</p>
                 <p class="text">Team : {{ session('teamName') }} </p>
@@ -95,21 +95,21 @@
                         <tr>
                             <td>No</td>
                             <td>Question</td>
-                            <td>Answer</td>
                             <td>Correct Answer</td>
+                            <td>Team Answer</td>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (session('result') as $index => $item)
+                        @foreach (session('questions') as $index => $item)
                             <tr>
                                 <td>{{ $index + 1 }}</td>
-                                <td>{{ $item->question_text }}</td>
-                                <td>{{ $item->user_answer_text }}</td>
-                                <td>{{ $item->correct_answer_text }}</td>
+                                <td>{{ $item }}</td>
+                                <td>{{ session('answers')[$index] }}</td>
+                                <td>{{ session('userAnswers')[$index] }}</td>
                             </tr>
                         @endforeach
                         <tr>
-                            <td colspan="4" class="text">Correct Answers: {{ session('correctCount') }} / {{ session('count') }}</td>
+                            <td colspan="4" class="text">Correct Answers: {{ session('count') }} / {{ session('answersCount') }}</td>
                         </tr>
                         <tr>
                             <td colspan="4" class="text">Score For {{ session('ormawaName') }}: {{ session('score') }}</td>
