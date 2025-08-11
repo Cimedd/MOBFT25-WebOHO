@@ -50,6 +50,7 @@
 
         #reader {
             z-index: 100;
+            max-width: 300px;
         }
 
         @media screen and (max-width:760px) {
@@ -86,15 +87,14 @@
             </div>
         @endif
         <div class="">
-            <div id="reader" width="600px" class="text-black mx-auto bg-light rounded"></div>
+            <div id="reader" class="text-black mx-auto bg-light rounded"></div>
             <div class="rounded p-3 mt-3 w-75 mx-auto form" style="background-color: #355120;">
-                <form action="{{ route('team.getQuestion', ['page' => 1]) }}" method="GET">
+                <form action="{{ route('team.getQuestion', ['page' => 1]) }}" id="forms-code" method="GET">
                     <label for="ormawaField" style="color: #c69c17;" class="mb-1">Code</label>
                     <input type="password" name="ormawaCode" id="ormawaField" class="w-100" readonly x>
                     <br>
                     <br>
-                    <input type="submit" name="submit" class="btn w-100 text-white" style="background-color: #d17a32;"
-                        value="REEDEM" id="reedem">
+                    <button id="button-submit" class="btn btn-wide w-100 text-white rounded" disabled style="background-color: #d17a32;border: none;">Reedem</button>
                 </form>
             </div>
         </div>
@@ -115,6 +115,8 @@
             // console.log(`Code matched = ${decodedText}`, decodedResult);
             // $("#ormawaField").text(`${decodedText}`);
             $('#ormawaField').attr("value", `${decodedText}`);
+            $('#button-submit').removeAttr('disabled')
+            $('#button-submit').click();
         }
 
         function onScanFailure(error) {
@@ -127,8 +129,8 @@
             "reader", {
                 fps: 10,
                 qrbox: {
-                    width: 250,
-                    height: 250
+                    width: 200,
+                    height: 200
                 }
             },
             /* verbose= */

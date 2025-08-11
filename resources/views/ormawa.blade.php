@@ -318,7 +318,7 @@
             let question = @json($question);
             let ormawa = @json($ormawa);
             // console.log(ormawa)
-            let totalTime = 90000; //waktu 1 menit
+            let totalTime = 100000; //waktu 1 menit 40 detik
             let timerElement = $('#timer');
             let intervalId;
             let startTime;
