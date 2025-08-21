@@ -29,9 +29,9 @@ id,question_id,answer_text,is_correct
 28,10,D. AD,1
 29,11,A. Lifeskill,0
 30,11,B. Relation,0
-31,11,C. Partner�,1
+31,11,C. Partner,1
 32,11,D. Entrepreneur,0
-33,12,A. 2.�,0
+33,12,A. 2.,0
 34,12,B. 3,0
 35,12,C. 4,1
 36,12,D. 5,0
@@ -53,7 +53,7 @@ id,question_id,answer_text,is_correct
 52,18,"D. IMD, IPD, PPD, RDD",0
 53,19,Benar,1
 54,19,Salah,0
-55,20,A. Studi Banding�,0
+55,20,A. Studi Banding,0
 56,20,B. Studi Ekskursi,1
 57,20,C. Studi Tour,0
 58,20,D. Studi Eksternal,0
@@ -84,12 +84,12 @@ id,question_id,answer_text,is_correct
 85,29,C. PnD,1
 86,29,D. RnD,0
 87,30,A. Internal,0
-88,30,B. Eksternal�,0
+88,30,B. Eksternal,0
 89,30,C. PnD,0
 90,30,D. RnD,1
-91,31,A. Public Relation Department�,1
-92,31,B. Human Resource Department�,0
-93,31,C. Creative Design Department�,0
+91,31,A. Public Relation Department,1
+92,31,B. Human Resource Department,0
+93,31,C. Creative Design Department,0
 94,31,D. Internal Relationship Department,0
 95,32,A. 4,0
 96,32,B. 5,1
