@@ -666,7 +666,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/app/storage/framework/sessions',
+    'files' => '/../storage/framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
