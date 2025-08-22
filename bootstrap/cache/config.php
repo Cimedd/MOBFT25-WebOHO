@@ -666,7 +666,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Users\\moric\\Documents\\KULIAH\\MOB 2025\\MOBFT25-WebOHO\\storage\\framework/sessions',
+    'files' => 'storage/framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
